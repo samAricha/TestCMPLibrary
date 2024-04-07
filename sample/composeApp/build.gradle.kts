@@ -19,10 +19,14 @@ kotlin {
     
     sourceSets {
         val desktopMain by getting
-        
+        val ktorVersion = "2.3.9"
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+
+            implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -32,12 +36,22 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+            implementation("org.apache.commons:commons-collections4:4.4")
+
             //our library
             implementation(project(":test_lib"))
 
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+
+            implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+
         }
     }
 }
@@ -73,6 +87,8 @@ android {
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
+
+
     }
 }
 
