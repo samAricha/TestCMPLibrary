@@ -59,16 +59,16 @@ android {
         }
     }
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-//        getByName("release") {
+//        release {
 //            isMinifyEnabled = false
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"),
+//                "proguard-rules.pro"
+//            )
 //        }
+        getByName("release") {
+            isMinifyEnabled = false
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -168,10 +168,10 @@ publishing {
         }
         create<MavenPublication>("maven") {
             withType<MavenPublication> {
-                groupId = "$group"
-                artifactId = artifact
-                version = version
-                artifact(dokkaJar)
+                groupId = "com.github.samAricha"
+                artifactId = "image-preview-cmp-library"
+                version = "0.0.1"
+//                artifact(dokkaJar)
             }
         }
     }
