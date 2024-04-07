@@ -1,15 +1,21 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.mavenPublishVanniktech) apply false
     id("maven-publish")
     id("org.jetbrains.dokka") version "1.9.20"
     id("signing")
 }
 
 kotlin {
+//    kotlin.applyDefaultHierarchyTemplate()
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -96,6 +102,40 @@ val dokkaJar by tasks.creating(Jar::class) {
     from(tasks.dokkaHtml)
 }
 
+//mavenPublishing {
+////    publishToMavenCentral(SonatypeHost.DEFAULT)
+//    // or when publishing to https://s01.oss.sonatype.org
+//    publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
+//    signAllPublications()
+//    coordinates("com.example.mylibrary", "mylibrary-runtime", "1.0.0")
+//
+//    pom {
+//        name.set(project.name)
+//        description.set("A description of what my library does.")
+//        inceptionYear.set("2023")
+//        url.set("https://github.com/username/mylibrary/")
+//        licenses {
+//            license {
+//                name.set("The Apache License, Version 2.0")
+//                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+//                distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+//            }
+//        }
+//        developers {
+//            developer {
+//                id.set("username")
+//                name.set("User Name")
+//                url.set("https://github.com/username/")
+//            }
+//        }
+//        scm {
+//            url.set("https://github.com/username/mylibrary/")
+//            connection.set("scm:git:git://github.com/username/mylibrary.git")
+//            developerConnection.set("scm:git:ssh://git@github.com/username/mylibrary.git")
+//        }
+//    }
+//}
+
 publishing {
     repositories {
         maven {
@@ -160,15 +200,16 @@ publishing {
                 }
             }
         }
-        create<MavenPublication>("maven") {
-            withType<MavenPublication> {
-                groupId = "$group"
-                artifactId = artifact
-                version = version
-                artifact(dokkaJar)
-            }
-        }
+//        create<MavenPublication>("maven") {
+//            withType<MavenPublication> {
+//                groupId = "$group"
+//                artifactId = artifact
+//                version = version
+//                artifact(dokkaJar)
+//            }
+//        }
     }
+
 }
 
 if (System.getenv("GPG_PRIVATE_KEY") != null && System.getenv("GPG_PRIVATE_PASSWORD") != null) {

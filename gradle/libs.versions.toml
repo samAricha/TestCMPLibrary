@@ -14,6 +14,7 @@ compose = "1.6.5"
 compose-plugin = "1.6.0"
 junit = "4.13.2"
 kotlin = "1.9.20"
+vanniktech = "0.13.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -34,3 +35,4 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+mavenPublishVanniktech = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
