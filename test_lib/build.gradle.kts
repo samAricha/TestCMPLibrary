@@ -75,8 +75,9 @@ android {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("release") {
             withType<MavenPublication> {
+
                 groupId = "com.github.samAricha"
                 artifactId = "test-cmp-library"
                 version = "0.0.1"
