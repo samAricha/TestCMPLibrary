@@ -1,0 +1,6 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.teka.image_preview////PointingToDeclaration/test_lib/com.teka.image_preview/index.html
+$dokka.location:com.teka.image_preview//ImagePreview/#androidx.compose.ui.graphics.painter.Painter#androidx.compose.ui.Modifier#kotlin.String#kotlin.String#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/test_lib/com.teka.image_preview/-image-preview.html
+com.teka.image_preview
+
