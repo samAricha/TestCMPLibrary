@@ -42,7 +42,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.teka.test_cmp_library"
+    namespace = "org.teka.image_preview_cmp_library"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
