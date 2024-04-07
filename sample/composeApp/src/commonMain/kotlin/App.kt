@@ -12,10 +12,9 @@ import com.teka.image_preview.ImagePreview
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
 import testcmplibrary.sample.composeapp.generated.resources.Res
-import testcmplibrary.sample.composeapp.generated.resources.compose_multiplatform
 import testcmplibrary.sample.composeapp.generated.resources.organiks_egg
+
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
