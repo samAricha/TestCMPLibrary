@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     id("maven-publish")
-    id("org.jetbrains.dokka") version "1.7.10"
+    id("org.jetbrains.dokka") version "1.9.20"
     id("signing")
 }
 
@@ -16,6 +16,7 @@ kotlin {
                 jvmTarget = "17"
             }
         }
+        publishAllLibraryVariants()
     }
     
     jvm("desktop")
@@ -77,7 +78,7 @@ val artifact = "rm-kotlin-sdk"
 val pkgUrl = "https://github.com/RevenueMonster/rm-kotlin-sdk"
 val gitUrl = "github.com:RevenueMonster/rm-kotlin-sdk.git"
 
-val dokkaOutputDir = "$buildDir/dokka"
+val dokkaOutputDir = "$projectDir/dokka"
 
 tasks.dokkaHtml {
     outputDirectory.set(file(dokkaOutputDir))
