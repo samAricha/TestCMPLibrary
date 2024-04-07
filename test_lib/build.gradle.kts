@@ -59,9 +59,16 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
+//        getByName("release") {
+//            isMinifyEnabled = false
+//        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -73,10 +80,14 @@ android {
 }
 
 
+group = "io.revenuemonster.sdk"
+version = "0.0.1"
 
-val artifact = "rm-kotlin-sdk"
-val pkgUrl = "https://github.com/RevenueMonster/rm-kotlin-sdk"
-val gitUrl = "github.com:RevenueMonster/rm-kotlin-sdk.git"
+
+
+val artifact = "test-cmp-library"
+val pkgUrl = "https://github.com/samAricha/TestCMPLibrary.git"
+val gitUrl = "github.com:samAricha/TestCMPLibrary.git"
 
 val dokkaOutputDir = "$projectDir/dokka"
 
@@ -155,13 +166,14 @@ publishing {
                 }
             }
         }
-//        create<MavenPublication>("maven") {
-//        withType<MavenPublication> {
-//            groupId = "$group"
-//            artifactId = artifact
-//            version = version
-//            artifact(dokkaJar)
-//        }
+        create<MavenPublication>("maven") {
+            withType<MavenPublication> {
+                groupId = "$group"
+                artifactId = artifact
+                version = version
+                artifact(dokkaJar)
+            }
+        }
     }
 }
 
