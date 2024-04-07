@@ -80,7 +80,7 @@ android {
 }
 
 
-group = "io.revenuemonster.sdk"
+group = "org.teka.test_cmp_library"
 version = "0.0.1"
 
 
